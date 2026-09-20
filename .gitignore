@@ -1,0 +1,31 @@
+# Flutter
+**/build/
+!build/
+build/*
+!build/web/
+!build/web/**
+mobile/build/
+my_first_app/
+Backup/
+AbodeBackUp/
+**/.dart_tool/
+**/packages/
+**/ios/Pods/
+**/android/.gradle/
+**/android/app/debug.keystore
+
+# Node
+node_modules/
+.env
+*.log
+
+# Firebase
+.firebase/
+.firebaserc
+supabase/.temp/
+supabase/.branches/
+
+# Misc
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123c38">
+  <title>DormMate Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="/admin.js"></script>
+</head>
+<body>
+  <div id="toast" class="toast" role="status"></div>
+  <section id="login-view" class="login-shell">
+    <div class="login-art"><span class="eyebrow">DORMMATE / CONTROL ROOM</span><h1>Operations that stay in step.</h1><p>One calm command center for your owners, rooms, tenants, payments, and messages.</p><div class="orbit"><span></span><span></span><span></span></div></div>
+    <form id="login-form" class="login-card">
+      <div class="brand-mark">D</div><span class="eyebrow">Super-admin access</span><h2>Welcome back.</h2><p class="muted">Sign in with a Supabase account carrying the <strong>superadmin</strong> role.</p>
+      <label>Email<input id="email" type="email" required autocomplete="email"></label>
+      <label>Password<input id="password" type="password" required autocomplete="current-password"></label>
+      <button class="primary full" type="submit">Enter workspace <span>↗</span></button><p id="login-error" class="error"></p>
+    </form>
+  </section>
+  <section id="app-view" class="app-shell hidden">
+    <aside class="sidebar"><div class="brand"><div class="brand-mark">D</div><div><strong>DormMate</strong><small>Admin console</small></div></div><nav id="nav"><button class="nav-item active" data-view="overview">◌ <span>Overview</span></button><button class="nav-item" data-view="people">♙ <span>People</span></button><button class="nav-item" data-view="properties">⌂ <span>Properties</span></button><button class="nav-item" data-view="payments">₱ <span>Payments</span></button><button class="nav-item" data-view="messages">✦ <span>Messages</span></button><button class="nav-item" data-view="reports">▥ <span>Reports</span></button><div class="nav-divider">CONTROL PLANE</div><button class="nav-item" data-view="access">◈ <span>Access control</span></button><button class="nav-item" data-view="audit">◷ <span>Audit activity</span></button><button class="nav-item" data-view="settings">⚙ <span>Settings</span></button></nav><div class="sidebar-foot"><span><i class="status-dot"></i> Supabase connected</span><button id="sign-out" class="text-button">Sign out</button></div></aside>
+    <main class="main"><header class="topbar"><div><span class="eyebrow">SUPER-ADMIN / <span id="current-view-label">OVERVIEW</span></span><h1 id="page-title">Good to see you.</h1></div><div class="profile"><span id="user-email">Loading...</span><div class="avatar" id="avatar">A</div></div></header><div id="content" class="content"></div></main>
+  </section>
+  <div id="modal" class="modal hidden"><div class="modal-card"><button class="modal-close" id="modal-close">×</button><div id="modal-content"></div></div></div>
+</body>
+</html>

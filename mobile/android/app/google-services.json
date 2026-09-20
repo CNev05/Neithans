@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "676295004395",
+    "project_id": "dormmate-6dc56",
+    "storage_bucket": "dormmate-6dc56.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676295004395:android:6a1601a88aa681981caeae",
+        "android_client_info": {
+          "package_name": "com.neithans.dormmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676295004395-lht2hbr68pc3o4pt76vgf2empegqo6hr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.neithans.dormmate",
+            "certificate_hash": "7067b8ec6eadde94750b69b05f5501c86e8a0d7c"
+          }
+        },
+        {
+          "client_id": "676295004395-eer9d2plpenb7dpp4lajgdp97p0eki2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB7ZxDZCrHuowUV1vbTBSg0a7giCf4Ykk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676295004395-eer9d2plpenb7dpp4lajgdp97p0eki2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

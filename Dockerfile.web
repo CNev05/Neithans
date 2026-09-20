@@ -1,0 +1,5 @@
+# Simple Dockerfile to serve Flutter web build via nginx
+FROM nginx:alpine
+COPY mobile/build/web /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

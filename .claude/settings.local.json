@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\geloc\\\\Desktop\\\\Caps\" -Recurse -Force)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Sort-Object FullName)",
+      "WebSearch",
+      "WebFetch(domain:unismsapi.com)"
+    ]
+  }
+}

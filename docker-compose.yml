@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  firebase-emulator:
+    image: firebase/tools:latest
+    entrypoint: ["/bin/sh", "-c"]
+    command: "firebase emulators:start --only auth,firestore,functions --project=$${FIREBASE_PROJECT}"
+    environment:
+      - FIREBASE_PROJECT=${FIREBASE_PROJECT}
+    ports:
+      - "4000:4000"
+      - "8080:8080"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "8081:80"
+    depends_on:
+      - firebase-emulator

@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "outputDirectory": "build/web",
+  "cleanUrls": true,
+  "functions": {
+    "api/config.js": { "runtime": "nodejs20.x" }
+  }
+}

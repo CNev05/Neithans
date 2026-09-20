@@ -1,0 +1,86 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isSuperAdmin() {
+      return isSignedIn() && (request.auth.token.superadmin == true || request.auth.token.role == 'superadmin');
+    }
+
+    function isOwner() {
+      return isSignedIn() && (request.auth.token.owner == true || request.auth.token.role == 'owner');
+    }
+
+    function owns(resourceData) {
+      return isSignedIn() && resourceData.ownerId == request.auth.uid;
+    }
+
+    match /users/{uid} {
+      allow read: if isSuperAdmin() || (isSignedIn() && uid == request.auth.uid);
+      allow write: if false;
+    }
+
+    match /owners/{ownerId} {
+      allow read: if isSuperAdmin() || (isSignedIn() && ownerId == request.auth.uid);
+      allow write: if false;
+    }
+
+    match /admins/{adminId} {
+      allow read: if isSuperAdmin() || (isSignedIn() && adminId == request.auth.uid);
+      allow write: if false;
+    }
+
+    match /rooms/{roomId} {
+      allow read: if isSuperAdmin() || (isOwner() && owns(resource.data));
+      allow write: if false;
+    }
+
+    match /tenants/{tenantId} {
+      allow read: if isSuperAdmin() || (isOwner() && owns(resource.data));
+      allow write: if false;
+    }
+
+    match /payments/{paymentId} {
+      allow read: if isSuperAdmin() || (isOwner() && owns(resource.data));
+      allow write: if false;
+    }
+
+    match /sms_queue/{smsId} {
+      allow read: if isSuperAdmin() || (isOwner() && owns(resource.data));
+      allow write: if false;
+    }
+
+    match /rate_limits/{rateLimitId} {
+      allow read, write: if false;
+    }
+
+    match /audit_logs/{logId} {
+      allow read: if isSuperAdmin();
+      allow write: if false;
+    }
+
+    match /backups/{backupId} {
+      allow read: if isSuperAdmin();
+      allow write: if false;
+    }
+
+    match /failed_syncs/{syncId} {
+      allow read: if isSuperAdmin();
+      allow write: if false;
+    }
+
+    match /analytics/{analyticsId} {
+      allow read: if isSuperAdmin();
+      allow write: if false;
+    }
+
+    // Temporary role-provisioning records are server-only.
+    match /admin_provisioning/{email} {
+      allow read, write: if false;
+    }
+  }
+}
