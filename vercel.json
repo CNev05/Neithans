@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "outputDirectory": "build/web",
   "cleanUrls": true,
-  "functions": {
-    "api/config.js": { "runtime": "nodejs20.x" }
-  }
+  "builds": [
+    { "src": "build/web/**", "use": "@vercel/static" },
+    { "src": "api/config.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/config", "dest": "/api/config.js" },
+    { "src": "/(.*)", "dest": "/build/web/$1" }
+  ]
 }
